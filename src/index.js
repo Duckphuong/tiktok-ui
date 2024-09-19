@@ -3,12 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from '~/App';
-import Todo from './todo';
-import App1 from './useImperativehandle';
 import GlobalStyles from './component/GlobalStyles';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from './ThemeContext';
-import { StoreProvider } from './store';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 function emitComment(id) {
