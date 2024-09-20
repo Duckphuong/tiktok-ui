@@ -114,6 +114,30 @@
     cursor          : pointer;
 }
 
+//action
+.action {
+    display    : flex;
+    align-items: center;
+}
+
+.action-btn {
+    color           : rgb(22, 24, 35);
+    background-color: transparent;
+    font-size       : 2.2rem;
+    padding         : 4px 12px;
+    cursor          : pointer;
+
+}
+
+.user-avatar {
+    border-radius: 50%;
+    width        : 32px;
+    height       : 32px;
+    margin-left  : 12px;
+    object-fit   : cover;
+    cursor       : pointer;
+}
+
 //menu
 .menu-items {
     width: 224px;
