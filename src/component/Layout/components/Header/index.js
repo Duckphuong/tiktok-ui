@@ -7,11 +7,12 @@ import Menu from '~/component/Popper/Menu';
 import Tippy from '@tippyjs/react/';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
+import Image from '~/component/Image';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/component/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUploadAlt,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
@@ -144,12 +145,31 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy
-                                delay={200}
+                                delay={[0, 50]}
                                 content="Upload video"
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUploadAlt} />
+                                    <UploadIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                delay={[0, 50]}
+                                content="Message"
+                                placement="bottom"
+                            >
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                delay={[0, 50]}
+                                content="Inbox"
+                                placement="bottom"
+                            >
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
@@ -170,10 +190,11 @@ function Header() {
                         onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://scontent.fsgn21-1.fna.fbcdn.net/v/t39.30808-6/409068480_791066763052971_1903929720692356585_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEkyzhY6HAXLkacDizRmi8IEK6V5iyW8eYQrpXmLJbx5tTNcafLzWiw53vm8J2f_jQFPV5zXCgaIPlZVjPt4xYn&_nc_ohc=RVAuX54zvnoQ7kNvgEI-pNq&_nc_ht=scontent.fsgn21-1.fna&_nc_gid=AnYjeZ7ydGJfp535mMq2oHA&oh=00_AYDLKo18bNMgVqbul6DlRVbtfcB49yP2G4TWOIVjbAtbug&oe=66F32EB3"
                                 alt="Nguyen duc Phuong"
+                                fallback="https://avatars.githubusercontent.com/u/149881546?v=4"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
