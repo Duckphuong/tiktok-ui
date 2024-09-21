@@ -20,6 +20,8 @@
         caret-color     : var(--primary);
         height          : 100%;
         background-color: transparent;
+        font-family     : var(--font-family);
+        
     }
 
     input:not(:placeholder-shown)~.search-btn {

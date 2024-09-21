@@ -1,10 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import images from '~/assets/images';
-import Button from '~/component/Button';
-import Menu from '~/component/Popper/Menu';
 import Tippy from '@tippyjs/react/';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
+
+import images from '~/assets/images';
+import routesConfig from '~/config/routes';
+import Button from '~/component/Button';
+import Menu from '~/component/Popper/Menu';
 import Image from '~/component/Image';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/component/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -57,8 +60,6 @@ const MENU_ITEMS = [
 function Header() {
     const currentUser = true;
 
-    
-
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
@@ -91,10 +92,12 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="TikTok" />
+                <Link to={routesConfig.home}>
+                    <img src={images.logo} alt="TikTok" />
+                </Link>
 
-                <Search/>
-               
+                <Search />
+
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
