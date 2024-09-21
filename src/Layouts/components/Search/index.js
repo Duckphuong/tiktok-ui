@@ -1,4 +1,4 @@
-import { Wrapper as PopperWrapper } from '~/component/Popper';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import HeadlessTippy from '@tippyjs/react/headless';
 import {
     faCircleXmark,
@@ -6,12 +6,12 @@ import {
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AccountItem from '~/component/AccountItem';
+import AccountItem from '~/components/AccountItem';
 import classNames from 'classnames/bind';
 import styles from './search.module.scss';
 import { useEffect, useState, useRef } from 'react';
 import { useDebounce } from '~/hooks';
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchServices from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -52,49 +52,6 @@ function Search() {
     const handleHideResule = () => {
         setShowResult(false);
     };
-<<<<<<< HEAD
-=======
-
-    const handleChange = (e) => {
-        const searchValue = e.target.value;
-        if (!searchValue.startsWith(' ') || searchValue.trim()) {
-            setSearchValue(searchValue);
-        }
-    };
-
-    return (
-        <HeadlessTippy
-            interactive
-            visible={showResult && searchResult.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResult.map((result) => (
-                            <AccountItem key={result.id} data={result} />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResule}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={searchValue}
-                    placeholder="Search accounts and videos"
-                    spellCheck={false}
-                    onChange={handleChange}
-                    onFocus={() => {
-                        setShowResult(true);
-                    }}
-                />
-                {!!searchValue && !loading && (
-                    <button className={cx('clear')} onClick={handleClear}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
-                )}
->>>>>>> 0321b66df9e936d0791edbb1de3c8fbda59776c1
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
@@ -123,7 +80,6 @@ function Search() {
                         </PopperWrapper>
                     </div>
                 )}
-<<<<<<< HEAD
                 onClickOutside={handleHideResule}
             >
                 <div className={cx('search')}>
@@ -158,16 +114,6 @@ function Search() {
                 </div>
             </HeadlessTippy>
         </div>
-=======
-                <button
-                    className={cx('search-btn')}
-                    onMouseDown={(e) => e.preventDefault()}
-                >
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </div>
-        </HeadlessTippy>
->>>>>>> 0321b66df9e936d0791edbb1de3c8fbda59776c1
     );
 }
 

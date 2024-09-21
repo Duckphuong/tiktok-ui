@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
-import { Wrapper as PopperWrapper } from '~/component/Popper';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
