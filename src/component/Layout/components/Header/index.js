@@ -21,7 +21,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Search from '../Search';
 
-
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
