@@ -52,6 +52,8 @@ function Search() {
     const handleHideResule = () => {
         setShowResult(false);
     };
+<<<<<<< HEAD
+=======
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
@@ -92,13 +94,71 @@ function Search() {
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
                 )}
+>>>>>>> 0321b66df9e936d0791edbb1de3c8fbda59776c1
 
-                {loading && (
-                    <FontAwesomeIcon
-                        className={cx('loading')}
-                        icon={faSpinner}
-                    />
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ') || searchValue.trim()) {
+            setSearchValue(searchValue);
+        }
+    };
+
+    return (
+        //wrap bang the div de k bi warning
+        <div>
+            <HeadlessTippy
+                interactive
+                visible={showResult && searchResult.length > 0}
+                render={(attrs) => (
+                    <div
+                        className={cx('search-result')}
+                        tabIndex="-1"
+                        {...attrs}
+                    >
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {searchResult.map((result) => (
+                                <AccountItem key={result.id} data={result} />
+                            ))}
+                        </PopperWrapper>
+                    </div>
                 )}
+<<<<<<< HEAD
+                onClickOutside={handleHideResule}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        placeholder="Search accounts and videos"
+                        spellCheck={false}
+                        onChange={handleChange}
+                        onFocus={() => {
+                            setShowResult(true);
+                        }}
+                    />
+                    {!!searchValue && !loading && (
+                        <button className={cx('clear')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+
+                    {loading && (
+                        <FontAwesomeIcon
+                            className={cx('loading')}
+                            icon={faSpinner}
+                        />
+                    )}
+                    <button
+                        className={cx('search-btn')}
+                        onMouseDown={(e) => e.preventDefault()}
+                    >
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                </div>
+            </HeadlessTippy>
+        </div>
+=======
                 <button
                     className={cx('search-btn')}
                     onMouseDown={(e) => e.preventDefault()}
@@ -107,6 +167,7 @@ function Search() {
                 </button>
             </div>
         </HeadlessTippy>
+>>>>>>> 0321b66df9e936d0791edbb1de3c8fbda59776c1
     );
 }
 
